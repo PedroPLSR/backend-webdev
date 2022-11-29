@@ -8,7 +8,11 @@
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< Updated upstream
   "author": "Samuel, Pedro, Gustavo",
+=======
+  "author": "",
+>>>>>>> Stashed changes
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
