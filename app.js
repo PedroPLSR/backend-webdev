@@ -177,6 +177,72 @@ router.delete("/bets/:id", async function (req, res, next) {
   }
 });
 
+// User API
+// GET
+router.get("/users/:id?", async function (req, res, next) {
+  try {
+    const db = await connect();
+    if (req.params.id) {
+      res.json(
+        await db
+          .collection("users")
+          .findOne({ _id: new ObjectId(req.params.id) })
+      );
+    } else {
+      res.json(await db.collection("users").find().toArray());
+    }
+  } catch (ex) {
+    console.log(ex);
+    res.status(400).json({ erro: `${ex}` });
+  }
+});
+
+// POST /users
+router.post("/users", async function (req, res, next) {
+  try {
+    const user = req.body;
+    const db = await connect();
+    res.json(await db.collection("users").insertOne(user));
+  } catch (ex) {
+    console.log(ex);
+    res.status(400).json({ erro: `${ex}` });
+  }
+});
+
+// PUT /users/{id}
+// PUT
+router.put("/users/:id", async function (req, res, next) {
+  try {
+    const user = req.body;
+    const db = await connect();
+
+    res.json(
+      await db
+        .collection("users")
+        .updateOne({ _id: new ObjectId(req.params.id) }, { $set: user })
+    );
+  } catch (ex) {
+    console.log(ex);
+    res.status(400).json({ erro: `${ex}` });
+  }
+});
+
+// DELETE /users/{id}
+// DELETE
+router.delete("/users/:id", async function (req, res, next) {
+  try {
+    const db = await connect();
+    res.json(
+      await db
+        .collection("users")
+        .deleteOne({ _id: new ObjectId(req.params.id) })
+    );
+  } catch (ex) {
+    console.log(ex);
+    res.status(400).json({ erro: `${ex}` });
+  }
+});
+
 app.use("/", router);
 
 //inicia o servidor
