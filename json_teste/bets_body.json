@@ -1,10 +1,11 @@
 [
-    {
-        "cardId": "",
-        "time_aposta": "",
-        "time_adversario": "",
-        "valor": 0,
-        "odd": 0,
-        "ganho": 0
-    }
+  {
+    "_id_match": "",
+    "nome_timeA": "",
+    "nome_timeB": "",
+    "odd_timeA": "",
+    "odd_timeB": "",
+    "valor_aposta": "",
+    "valor_vencedor": ""
+  }
 ]
