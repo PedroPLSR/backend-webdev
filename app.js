@@ -22,17 +22,14 @@ app.use(express.json());
 //definindo as rotas
 const router = express.Router();
 
-<<<<<<< Updated upstream
 router.get("/", (req, res) => res.json({ message: "Connected to Betavo DB!" }));
 
 // ==== CARDS API ====
 // GET /cards || GET /cards/{id}
-=======
 router.get("/", (req, res) => res.json({ message: "Funcionando!" }));
 
 // ==== CARDS COLLECITON ====
 // GET
->>>>>>> Stashed changes
 router.get("/cards/:id?", async function (req, res, next) {
   try {
     const db = await connect();
@@ -51,11 +48,7 @@ router.get("/cards/:id?", async function (req, res, next) {
   }
 });
 
-<<<<<<< Updated upstream
 // POST /cards
-=======
-// POST
->>>>>>> Stashed changes
 router.post("/cards", async function (req, res, next) {
   try {
     const customer = req.body;
@@ -67,11 +60,8 @@ router.post("/cards", async function (req, res, next) {
   }
 });
 
-<<<<<<< Updated upstream
 // PUT /cards/{id}
-=======
 // PUT
->>>>>>> Stashed changes
 router.put("/cards/:id", async function (req, res, next) {
   try {
     const customer = req.body;
@@ -87,11 +77,9 @@ router.put("/cards/:id", async function (req, res, next) {
   }
 });
 
-<<<<<<< Updated upstream
+
 // DELETE /cards/{id}
-=======
 // DELETE
->>>>>>> Stashed changes
 router.delete("/cards/:id", async function (req, res, next) {
   try {
     const db = await connect();
@@ -105,8 +93,6 @@ router.delete("/cards/:id", async function (req, res, next) {
     res.status(400).json({ erro: `${ex}` });
   }
 });
-<<<<<<< Updated upstream
-=======
 
 // ==== BETS COLLECITON ====
 // GET
@@ -168,7 +154,6 @@ router.delete("/bets/:id", async function (req, res, next) {
     res.status(400).json({ erro: `${ex}` });
   }
 });
->>>>>>> Stashed changes
 
 app.use("/", router);
 
@@ -177,7 +162,5 @@ console.log(
   `Server runnning on PORT ${PORT}\nServer URL: http://localhost:3000/`
 );
 app.listen(PORT);
-<<<<<<< Updated upstream
-=======
+
 console.log(`Server runnning on PORT ${PORT}`);
->>>>>>> Stashed changes
